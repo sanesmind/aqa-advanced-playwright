@@ -1,0 +1,26 @@
+{
+  "name": "aqa-advanced-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanesmind/aqa-advanced-playwright.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanesmind/aqa-advanced-playwright/issues"
+  },
+  "homepage": "https://github.com/sanesmind/aqa-advanced-playwright#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
+  }
+}
