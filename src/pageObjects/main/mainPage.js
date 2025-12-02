@@ -1,11 +1,15 @@
-export default class MainPage {
+import BasePage from "../BasePage.js";
+import SignUpPopup from "../registration/components/SignUpPopup.js";
+
+export default class MainPage extends BasePage {
     constructor(page) {
-        this.page = page;
-        this._URL = "/";
+        super(page, "/");
+        this.signUpButton = page.locator('.btn-primary', {hasText: 'Sign Up'});
     }
 
-    async navigate() {
-        await this.page.goto(this._URL);
+    async openSignUpPopup() {
+        await this.signUpButton.click();
+        return new SignUpPopup(this.page);
     }
 
 }

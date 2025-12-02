@@ -1,11 +1,8 @@
-import MainPage from "../../main/mainPage.js";
+import BaseComponent from "../../BaseComponent.js";
 
-
-export default class SignUpPopup extends MainPage {
+export default class SignUpPopup extends BaseComponent {
     constructor(page) {
         super(page);
-
-        this.signUpButton = page.locator('.btn-primary', {hasText: 'Sign Up'});
         this.container = this.page.locator('.modal-content');
         this.name = this.container.locator('#signupName');
         this.lastName = this.container.locator('#signupLastName');
@@ -14,11 +11,6 @@ export default class SignUpPopup extends MainPage {
         this.repeatPassword = this.container.locator('#signupRepeatPassword');
         this.submitButton = this.container.locator('.btn-primary', {hasText: 'Register'});
         this.profileButton = page.locator('#userNavDropdown');
-    }
-
-    async openSignUpPopup() {
-        await this.signUpButton.click();
-        return new SignUpPopup(this.page);
     }
 
     async fillInRegForm({name, lastName, email, password, repeatPassword}) {
@@ -33,7 +25,4 @@ export default class SignUpPopup extends MainPage {
         await this.fillInRegForm({name, lastName, email, password, repeatPassword});
         await this.submitButton.click();
     }
-
-
-
 }

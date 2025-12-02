@@ -52,9 +52,6 @@ test.describe.skip("SignUp tests", () => {
 
         await expect(signupPopup.getByText('Email is incorrect')).toBeVisible();
 
-        // // Перевірка border-color
-        // const borderColor = await emailInput.evaluate(el => getComputedStyle(el).borderColor);
-        // expect(borderColor.includes('220')).toBeTruthy();
     });
 
     test('Empty name validation', async ({page}) => {
