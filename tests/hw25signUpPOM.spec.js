@@ -1,18 +1,15 @@
 import {test, expect} from "@playwright/test";
 import { faker } from '@faker-js/faker';
 import MainPage from "../src/pageObjects/main/mainPage.js";
-import SignUpPopup from "../src/pageObjects/registration/components/SignUpPopup.js";
 
 test.describe("SignUp tests POM", () => {
 
     let mainPage;
     let signUp;
-
     test.beforeEach( async ({ page }) => {
         mainPage = new MainPage(page);
-        signUp = new SignUpPopup(page);
         await mainPage.navigate();
-        await mainPage.openSignUpPopup();
+        signUp = await mainPage.openSignUpPopup();
     });
 
     test("Successful SignUp POM", async () => {
