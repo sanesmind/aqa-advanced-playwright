@@ -12,6 +12,7 @@ test.describe("SignUp tests POM", () => {
         mainPage = new MainPage(page);
         signUp = new SignUpPopup(page);
         await mainPage.navigate();
+        await mainPage.openSignUpPopup();
     });
 
     test("Successful SignUp POM", async () => {
@@ -26,18 +27,15 @@ test.describe("SignUp tests POM", () => {
             repeatPassword: `Qwerty${passNums}`,
         };
 
-         const popup = await mainPage.openSignUpPopup();
-         await popup.createUser(user);
-        //await registration.createNewUser(user);
+         await signUp.createUser(user);
 
-        await expect(signUp.profileButton, "Button should be visible").toBeVisible();
+         await expect(signUp.profileButton, "Button should be visible").toBeVisible();
 
 
     });
 
     test('Incorrect email format validation POM', async () => {
 
-        await mainPage.openSignUpPopup();
         await signUp.email.fill("wrong-email-format");
         await signUp.email.blur();
 
@@ -47,7 +45,7 @@ test.describe("SignUp tests POM", () => {
     });
 
     test('Empty name validation POM', async () => {
-        await mainPage.openSignUpPopup();
+
         await signUp.name.click();
         await signUp.name.blur();
 
@@ -57,7 +55,7 @@ test.describe("SignUp tests POM", () => {
     });
 
     test('Last name is too long validation POM', async () => {
-        await mainPage.openSignUpPopup();
+
         await signUp.lastName.fill("asdfwerqwertasdgasdfaerqwersadf");
         await signUp.lastName.blur();
 
@@ -68,7 +66,7 @@ test.describe("SignUp tests POM", () => {
     });
 
     test('Password has less than 8 chars POM', async () => {
-        await mainPage.openSignUpPopup();
+
         await signUp.password.fill("123qwe");
         await signUp.password.blur();
 
@@ -78,7 +76,7 @@ test.describe("SignUp tests POM", () => {
     });
 
     test('Password has more than 15 chars POM', async () => {
-        await mainPage.openSignUpPopup();
+
         await signUp.password.fill("123qweqweQWEQWE123QWE!@#QWE!@#");
         await signUp.password.blur();
 
@@ -90,7 +88,6 @@ test.describe("SignUp tests POM", () => {
 
     test('Wrong repeat password format validation POM', async () => {
 
-        await mainPage.openSignUpPopup();
         await signUp.password.fill("qwe123QWE!");
         await signUp.password.blur();
 
@@ -103,4 +100,3 @@ test.describe("SignUp tests POM", () => {
     });
 
 });
-
