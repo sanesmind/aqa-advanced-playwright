@@ -44,9 +44,15 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+      {
+          name: 'setup',
+          testMatch: /.*\.setup\.js/,
+      },
+
     {
       name: 'chrome',
       use: { ...devices['Desktop Chrome'] },
+        dependencies: ['setup']
     },
 
     // {
