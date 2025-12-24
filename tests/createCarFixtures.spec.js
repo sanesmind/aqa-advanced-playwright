@@ -1,7 +1,7 @@
 import {garageTest} from "../src/customFixtures/userGaragePage.js";
 
 
-garageTest.describe.only("Create Car (fixtures)", () => {
+garageTest.describe("Create Car (fixtures)", () => {
 
     garageTest("Create Car ", async ({garagePage}) => {
         const brand = "Audi";
